@@ -1,5 +1,9 @@
 # Kloud Kart Data Strategy
 
+<p align="center">
+  <img src="./kloud-kart-arch-v2.png" alt="Kloud Kart architecture overview" width="900" />
+</p>
+
 This repository captures a practical data strategy engagement for Kloud Kart, a growing Ghana-based e-commerce business. The work focuses on building the right first data foundation for a company at its current size and maturity, rather than designing an oversized enterprise architecture.
 
 ## Project purpose
