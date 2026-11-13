@@ -1,6 +1,6 @@
 # ADR-002: The first warehouse is a separate reporting database on the second server, not a cloud warehouse
 
-- **Status:** Accepted
+- **Status:** Draft
 - **Date:** 2026-11-12
 - **Decision owner:** Ishola (consulting lead); client sign-off: Nana Adjei
 
@@ -31,7 +31,7 @@ Run the reporting database as a second MySQL instance on the second server, next
 - **What this buys:** A fixed, predictable cost, a tool the developer already knows, customer identity staying out of reporting, and one fewer vendor.
 - **What this costs:** Analytical SQL is somewhat clumsier on MySQL, and we run the server and its backups ourselves. The replica and the reporting database share one server, so a heavy nightly build can slow replication; builds run at 02:00 and are timed.
 - **What it costs the client if I am wrong:** About 2–4 weeks to move to a managed warehouse, because the logic is plain SQL in version control and raw tables are kept. That is cheap insurance.
-- **What would make me revisit this:** Reporting data past 150 GB; the nightly build taking over 3 hours; a second large data source that needs joining; or the second hire recommending a move after their first 90 days.
+- **What would make me revisit this:** Reporting data past 150 GB; the nightly build taking over 3 hours; a second large data source that needs joining; or the data analyst recommending a move after their first 90 days.
 
 ## What this survives
 

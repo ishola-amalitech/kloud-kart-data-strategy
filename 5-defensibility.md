@@ -31,7 +31,7 @@ The plan therefore does two things: it **reduces the number of copies**, and it 
 |---|---|---|---|---|
 | Live shop database | Yes | Yes (the source of truth) | Developer | Delete or anonymise the record. Order totals stay, anonymised, pending counsel on record-keeping. |
 | Read replica | No | Yes (a mirror of the shop) | Developer | Follows the live database automatically. |
-| Reporting database | No | Customer IDs only, no names or contact details | Hire 1 | Order rows are anonymised by the deletion checklist. |
+| Reporting database | No | Customer IDs only, no names or contact details | Data engineer | Order rows are anonymised by the deletion checklist. |
 | Backups | Unknown | Yes, kept 35 days | Developer | Rolls off within 35 days. Recorded as such, not hidden. |
 | Marketing's 300,000-row list and its copies | Unknown number | Only logged exports, each with an ID and a 30-day expiry | Marketing lead | Expiry, plus the suppression record so a deleted person is not re-added. |
 | Nana's and Finance's spreadsheets | Yes, uncounted | Retired once three month-ends match | Nana, Finance lead | Delete the files. |

@@ -1,6 +1,6 @@
 # ADR-004: Revenue has one definition, owned by Finance, calculated once in code and published as the only Monday report
 
-- **Status:** Accepted
+- **Status:** Draft
 - **Date:** 2026-11-12
 - **Decision owner:** Ishola (consulting lead); client sign-off: Nana Adjei and the Finance lead
 

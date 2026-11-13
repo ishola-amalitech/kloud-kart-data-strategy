@@ -1,6 +1,6 @@
 # ADR-005: Customer lists leave the system only through one logged export, files expire after 30 days, and deletion follows a checklist within 5 working days
 
-- **Status:** Accepted
+- **Status:** Draft
 - **Date:** 2026-11-12
 - **Decision owner:** Ishola (consulting lead); client sign-off: Nana Adjei and a Finance lead named as answerable for customer-data requests
 

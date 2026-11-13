@@ -1,6 +1,6 @@
 # ADR-001: All reporting and exports read from a replica on the second server, never from the live shop database
 
-- **Status:** Accepted
+- **Status:** Draft
 - **Date:** 2026-11-12
 - **Decision owner:** Ishola (consulting lead); client sign-off: Nana Adjei
 

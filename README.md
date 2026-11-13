@@ -35,7 +35,7 @@ The recommended direction is intentionally modest and defendable:
 - keep live stock logic inside the operational application
 - define one shared revenue metric across Finance and Operations
 - control customer-data exports and deletion processes to meet data protection obligations
-- defer real-time dashboards and forecasting until the reporting foundation is stable
+- assess stock freshness and operational interface needs before choosing stock monitoring or dashboard behavior; defer forecasting until the reporting foundation is stable
 
 ## Why this approach
 
@@ -61,7 +61,7 @@ The project aims to provide:
 
 The chosen path is to build a simple but durable reporting foundation first, rather than jumping to a modern lakehouse or enterprise cloud platform.
 
-The first priority is to protect the live website, define trusted metrics, and control customer-data exports. Once those are in place, the business can add more advanced analytics where the evidence supports it.
+The first priority is to protect the live website, define trusted metrics, and control customer-data exports. Stock controls and freshness requirements should be decided after auditing the operational flows; the warehouse supports analysis, not live stock decisions. Once the reporting foundation is stable, the business can add more advanced analytics where the evidence supports it.
 
 ## Related artifacts
 

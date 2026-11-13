@@ -14,7 +14,7 @@ The agreed rules will be maintained in a shared, version-controlled transformati
 
 Loading Strategy – Full Load Followed by Incremental Batch: The initial warehouse population will use a full load of the historical records required for reporting. Subsequent scheduled batch runs will extract only new and changed records, using reliable change tracking and extraction checkpoints. A nightly schedule is sufficient for the initial reporting requirements.
 
-Streaming – Not Required Initially: A separate streaming pipeline is not recommended at this stage. Live inventory must remain within the operational MySQL application, where stock availability is checked and updated through transactional controls during checkout. The warehouse will receive scheduled inventory data for analysis, but it will not control live stock availability.
+Inventory and Freshness: The operational shop application remains the authority for stock availability and checkout decisions; the warehouse is for analytical use, not live stock control. The cause of overselling, required stock freshness, and whether staff need an operational stock or low-stock interface have not yet been established. Audit the stock flows and agree the operational requirements before choosing controls, refresh cadence, streaming, alerts, or an interface. No particular stock pipeline or freshness target is prescribed here.
 
 Tool Categories: The architecture will require a relational database for the read replica, a data warehouse, ETL and extraction capabilities, scheduling and orchestration, data-quality monitoring, business intelligence and access-control and audit-logging capabilities.
 
