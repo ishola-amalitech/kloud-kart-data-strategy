@@ -1,8 +1,9 @@
 # ADR-006: Hire a data engineer first and a data analyst second; forecasting waits for a November decision gate
 
 - **Status:** Draft
-- **Date:** 2026-11-12
-- **Decision owner:** Ishola (consulting lead); client sign-off: Nana Adjei and the board
+- **Version:** 0.1
+- **Date:** 12 November 2026
+- **Decision owner:** Data strategy lead; client review: Head of Operations and board
 
 ## Context
 
@@ -10,12 +11,12 @@ The board has budgeted two data hires, not three. The developer is the only tech
 
 ## Decision
 
-**Hire 1, data engineer (offer accepted by 26 February, starts Monday 1 March 2027).** Strong SQL, some Python, and experience building and operating scheduled data pipelines. The role owns the reporting pipeline and also develops warehouse models and analysis using SQL, tests, and business rules agreed with Finance and Operations. First 90 days:
+**Hire 1, data engineer (offer accepted by 26 February 2027, starts 1 March 2027).** Strong SQL, some Python, and experience building and operating scheduled data pipelines. The role owns the reporting pipeline and also develops warehouse models and analysis using SQL, tests, and business rules agreed with Finance and Operations. First 90 days:
 - *Days 1–30:* shadow the developer on the replica and its runbook; inventory the source tables; turn the agreed revenue definition into tested SQL transformations.
 - *Days 31–60:* build and monitor the scheduled refresh with row-count and reconciliation checks; deliver the report Nana opens on Monday 29 March and support the March month-end match by 7 April.
 - *Days 61–90:* document the reporting data and deletion checklist with Marketing and the developer; improve data-quality checks and write handover notes; prove the report survives two days of the developer's absence. Any stock-application change remains with the shop developer and depends on the stock-flow audit and agreed requirements.
 
-**Hire 2, data analyst (starts Tuesday 1 June 2027).** Strong with business questions and reporting, not a pipeline builder. First 90 days:
+**Hire 2, data analyst (starts 1 June 2027).** Strong with business questions and reporting, not a pipeline builder. First 90 days:
 - *Days 1–30:* sit with Nana through her Mondays; agree her five most common questions.
 - *Days 31–60:* build the self-serve report for those questions; add Nigeria in cedis.
 - *Days 61–90:* take over the controlled customer export for Marketing; assess whether the history is clean enough for forecasting.

@@ -1,8 +1,9 @@
 # ADR-004: Revenue has one definition, owned by Finance, calculated once in code and published as the only Monday report
 
 - **Status:** Draft
-- **Date:** 2026-11-12
-- **Decision owner:** Ishola (consulting lead); client sign-off: Nana Adjei and the Finance lead
+- **Version:** 0.1
+- **Date:** 12 November 2026
+- **Decision owner:** Data strategy lead; client review: Head of Operations and Finance lead
 
 ## Context
 
@@ -10,7 +11,7 @@ Nana rebuilds her Monday numbers from CSV exports, Finance keeps its own spreads
 
 ## Decision
 
-I am proposing this definition; Finance must sign it by Friday 29 January 2027. **Revenue for a period** is the value of goods delivered in that period, after discounts, minus refunds and returns processed in that same period, and excluding VAT, levies and delivery fees. Periods end at midnight Accra time. A refund reduces the month it is processed in, so closed months never change. "Orders placed" is reported separately under a different name so two numbers never share one label. Nigeria revenue is shown in cedis at the month-end rate Finance sets. If delivery date is not recorded, dispatch date is used until it is. The definition is implemented once, as a version-controlled SQL file with automatic tests, and the two existing spreadsheets are retired once three month-ends match.
+I am proposing this definition; Finance must sign it by 29 January 2027. **Revenue for a period** is the value of goods delivered in that period, after discounts, minus refunds and returns processed in that same period, and excluding VAT, levies and delivery fees. Periods end at midnight Accra time. A refund reduces the month it is processed in, so closed months never change. "Orders placed" is reported separately under a different name so two numbers never share one label. Nigeria revenue is shown in cedis at the month-end rate Finance sets. If delivery date is not recorded, dispatch date is used until it is. The definition is implemented once, as a version-controlled SQL file with automatic tests, and the two existing spreadsheets are retired once three month-ends match.
 
 ## Alternatives considered
 

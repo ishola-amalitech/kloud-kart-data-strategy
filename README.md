@@ -23,8 +23,11 @@ The project is designed to answer the decision the company actually needs to mak
 - `01-diagnosis.md` — situation diagnosis and root-cause analysis of the key operational and governance issues
 - `02a-recommendation.md` — recommendation for the architecture and operating model
 - `02b-roadmap.md` — 12-month roadmap with quarterly outcomes and checks
-- `03-ADRs/` — architecture decision records covering the major trade-offs
-- `kloud-kart-arch-v2.png` — supporting architecture diagram
+- `03-ADRs/` — six architecture decision records covering the major trade-offs; all are version 0.1 drafts pending client/board review, none is accepted
+- `5-defensibility.md` — assessment against Ghana's data-protection constraints; not legal advice
+- `6-improvement.md` — proposal for a reporting reconciliation check; not implemented
+- `kloud-kart-arch-v2.png` — supporting architecture diagram; the repository contains no v1 diagram or change log
+- `kloud-kart-presentation.pptx` — board presentation draft; align its claims with the current diagnosis, recommendation, roadmap, and ADR drafts before submission
 
 ## Core themes
 
@@ -62,13 +65,6 @@ The project aims to provide:
 The chosen path is to build a simple but durable reporting foundation first, rather than jumping to a modern lakehouse or enterprise cloud platform.
 
 The first priority is to protect the live website, define trusted metrics, and control customer-data exports. Stock controls and freshness requirements should be decided after auditing the operational flows; the warehouse supports analysis, not live stock decisions. Once the reporting foundation is stable, the business can add more advanced analytics where the evidence supports it.
-
-## Related artifacts
-
-- Architecture diagram: `kloud-kart-arch-v2.png`
-- Recommendation: `02a-recommendation.md`
-- Roadmap: `02b-roadmap.md`
-- ADRs: `03-ADRs/`
 
 ## Note
 

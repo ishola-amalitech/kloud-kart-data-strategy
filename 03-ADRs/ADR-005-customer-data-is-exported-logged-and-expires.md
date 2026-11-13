@@ -1,20 +1,21 @@
 # ADR-005: Customer lists leave the system only through one logged export, files expire after 30 days, and deletion follows a checklist within 5 working days
 
 - **Status:** Draft
-- **Date:** 2026-11-12
-- **Decision owner:** Ishola (consulting lead); client sign-off: Nana Adjei and a Finance lead named as answerable for customer-data requests
+- **Version:** 0.1
+- **Date:** 12 November 2026
+- **Decision owner:** Data strategy lead; client review: Head of Operations and Finance lead
 
 ## Context
 
-Marketing holds a list of about 300,000 people and nobody knows how many copies exist or where. Ghana's Data Protection Act gives people rights over their data, and the Data Protection Commission can require a response within 90 days when a deleted customer's data turns up. If a complaint is already open, its 90 days started the day it was received, so that case is answered by hand first (see defensibility.md). Today the company could not prove where a person's data is, so it could not prove it was deleted. I am not a lawyer; the points below need confirming with counsel.
+Marketing holds a list of about 300,000 people and nobody knows how many copies exist or where. The lab brief requires a response to a Data Protection Commission complaint about a deleted customer's data within 90 days. If a complaint is already open, its 90-day response period started on the date it was received, so that case is answered by hand first (see [5-defensibility.md](../5-defensibility.md)). The 90-day period is a case requirement here, not a general statutory deadline for fulfilling an individual deletion request. Today the company could not prove where a person's data is, so it could not prove it was deleted. I am not a lawyer; the points below need confirming with counsel.
 
 ## Decision
 
 1. **One way out:** Customer lists are produced only by a single export that records who asked, why, how many rows, when, and where the file went. Each file carries an export ID.
 2. **Expiry:** Every file expires after 30 days, and its owner confirms deletion. Marketing re-exports for each campaign instead of reusing old lists.
-3. **A register:** One list names every place customer data lives (the shop, the replica, backups, the reporting database, any email tool, files) and who is answerable for each. It is complete by Friday 26 February 2027.
+3. **A register:** One list names every place customer data lives (the shop, the replica, backups, the reporting database, any email tool, files) and who is answerable for each. It is complete by 26 February 2027.
 4. **Keep identity out of reporting:** The reporting database holds customer IDs only (ADR-002).
-5. **Deletion checklist:** A deletion request runs the register's checklist: delete or anonymise in the shop, clear exports, and anonymise reporting rows so order totals survive. Target is 5 working days; backups roll off within 35 days, so full erasure completes well inside the 90-day limit.
+5. **Deletion checklist:** A deletion request runs the register's checklist: delete or anonymise in the shop, clear exports, and anonymise reporting rows so order totals survive. The internal target is 5 working days. The proposed 35-day backup expiry is intended to make backup handling visible before the lab-required 90-day complaint response deadline; it is not a claim about a statutory deletion timeframe, and backup behavior must be confirmed.
 6. **Suppression:** A minimal record of deleted people, subject to counsel's approval, stops them being re-added from an old file.
 
 ## Alternatives considered
@@ -33,7 +34,7 @@ Marketing holds a list of about 300,000 people and nobody knows how many copies 
 
 ## Consequences
 
-- **What this buys:** A defensible answer to "where is this person's data, and when was it deleted?", and a plan that fits the 90-day window with room to spare.
+- **What this buys:** A more defensible answer to "where is this person's data, and when was it deleted?", with a process designed to support the lab-required 90-day complaint response.
 - **What this costs:** Marketing loses the freedom to email themselves lists, and the developer builds one export and a deletion checklist (days, not weeks).
 - **What it costs the client if I am wrong:** A complaint that finds data in a copy not on the register. The register cannot catch files created before it existed, which is why Q1 includes a hunt for existing copies.
 - **What would make me revisit this:** More than about 5 deletion requests a month, a move to a vendor email platform, or counsel saying anonymising orders is not enough.

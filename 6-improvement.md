@@ -1,31 +1,32 @@
-# Proposed improvement beyond the brief: reconcile selected report data with the read replica
+# Proposed improvement beyond the brief: a nightly replica-to-report reconciliation check
 
 ## The problem it solves
 
-The brief asks for one revenue number Nana and Finance can both trust. A scheduled build can run and still produce a report that differs from its source: a missing day, a duplicated order, or a changed amount. A reconciliation check is a proposed DataOps safeguard that could flag selected discrepancies for investigation.
+The brief asks for one revenue number Nana and Finance can both trust. A scheduled build can run and still produce a report that differs from its source through missing days, duplicated orders, or changed amounts. The proposed improvement is a nightly reconciliation check that compares selected reporting data with the corresponding data on the MySQL read replica.
 
-## Proposed check
+## Initial scope
 
-After a scheduled warehouse build, compare selected reporting-table counts and values with the corresponding data on the MySQL read replica, the reporting source described in ADR-001. A possible initial scope is the last 7 complete days:
+For the last seven complete days, the check will:
 
 1. Compare order counts by day.
 2. Compare order values by day.
-3. Check that the latest complete day expected from the build is present.
-4. Check for duplicate orders in the reporting output.
+3. Confirm the latest complete day expected from the build is present.
+4. Detect duplicate order identifiers in the reporting output.
 
-If implemented, a failed check could identify the affected day and differing values for investigation; it should not by itself declare a report accurate or safe to publish.
+The comparison will use matching date cut-offs and source watermarks so replication timing does not create false discrepancies. A failure will identify the affected day and values for investigation; a pass will mean only that these selected checks matched. It will not certify the report as generally accurate or safe to publish.
 
-**Implementation status:** This is a proposal, not a built feature. The repository contains no implementation or test artifacts for this check, and it has not been run against Kloud Kart systems or data. The comparison fields, date handling, duplicate criteria, failure handling, and publication workflow need to be agreed and tested before use.
+**Status:** Proposal only. No implementation or test artifacts are present in the repository, and the check has not been run against Kloud Kart systems or data. The data engineer should implement and test the check with the developer before it is used.
 
 ## What it is worth to Kloud Kart
 
-- **For Nana and Finance:** selected discrepancies could be surfaced for investigation instead of waiting for a manual month-end comparison.
-- **For the board:** after implementation, the team could track how often these checks find a mismatch.
-- **For data protection:** the check could provide limited evidence that selected reporting counts and values agree with the replica. It would not establish that the source data is accurate or that the agreed revenue definition is correct.
+- **For Nana and Finance:** the check can surface selected report/source discrepancies for investigation instead of waiting for a manual month-end comparison.
+- **For the board:** once implemented, record how often the check finds a mismatch.
+- **For accuracy:** this is a limited report-integrity control relevant to the Act 843 data-accuracy principle described in the defensibility assessment. It does not validate source data, the revenue definition, or all personal data. It does not track deletion requests or satisfy the lab brief's separate requirement to respond to a Data Protection Commission complaint within 90 days; the data-copy register and deletion checklist address that workflow.
 
-The diagnosis estimates risk-weighted exposure of about GHS 150,000 for a 0.1% revenue discrepancy; this is not a measured loss. The proposed check would not prevent all reporting errors or eliminate that exposure.
+The diagnosis estimates annual order value as 4,000 orders/day × GHS 100/order × 365 days = GHS 146,000,000 (about GHS 150 million). A 0.1% discrepancy is GHS 146,000, rounded to about GHS 150,000 for the risk-weighted estimate. This is exposure, not a measured loss; the check will not prevent all reporting errors or eliminate that exposure.
 
 ## Implementation considerations
 
-- **To implement:** effort and operating cost need estimating after the comparison scope and publication workflow are agreed. The data engineer could develop the reporting-side checks with input from the developer.
-- **Limitations:** A match to the replica would not validate the source data, the *definition* of revenue (ADR-004), or transformations that are wrong in the same way on both sides. Aggregate checks can also miss errors that cancel each other out.
+- The data engineer owns the reporting-side check, with the developer confirming source fields, date cut-offs, and replica watermarks.
+- Estimate implementation and operating effort before scheduling the work.
+- A match to the replica does not validate the source data, the *definition* of revenue (ADR-004), or errors shared by both sides. Aggregate checks can also miss errors that cancel each other out.

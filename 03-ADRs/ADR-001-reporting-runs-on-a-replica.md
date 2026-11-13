@@ -1,8 +1,9 @@
 # ADR-001: All reporting and exports read from a replica on the second server, never from the live shop database
 
 - **Status:** Draft
-- **Date:** 2026-11-12
-- **Decision owner:** Ishola (consulting lead); client sign-off: Nana Adjei
+- **Version:** 0.1
+- **Date:** 12 November 2026
+- **Decision owner:** Data strategy lead; client review: Head of Operations
 
 ## Context
 
@@ -10,7 +11,7 @@ Orders, stock and customer accounts share one MySQL database, on the same box as
 
 ## Decision
 
-Stand up a MySQL read replica on the pre-approved second server by Monday 11 January 2027. From that date every report and export reads only from the replica, and the database logins that people use for exports on the live database are removed. Replication lag is monitored, and the replica is never used to answer "how much stock is there?".
+Stand up a MySQL read replica on the pre-approved second server by 11 January 2027. From that date every report and export reads only from the replica, and the database logins that people use for exports on the live database are removed. Monitor replication lag and show each report's data time. If lag exceeds the provisional 15-minute warning threshold, withhold affected reports and exports, alert the developer and data engineer, and resume only after the replica is within threshold and its sync health is confirmed. Never fall back to reporting reads on the production database. The replica is never used to answer "how much stock is there?".
 
 ## Alternatives considered
 

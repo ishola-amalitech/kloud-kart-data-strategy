@@ -1,7 +1,8 @@
 # ADR-003: Reassess stock controls and freshness after auditing operational flows
 
 - **Status:** Draft
-- **Date:** 2026-11-13
+- **Version:** 0.1
+- **Date:** 13 November 2026
 - **Decision owner:** Kloud Kart leadership, with input from the shop developer
 
 ## Context

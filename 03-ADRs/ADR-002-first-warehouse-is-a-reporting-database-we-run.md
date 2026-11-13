@@ -1,8 +1,9 @@
 # ADR-002: The first warehouse is a separate reporting database on the second server, not a cloud warehouse
 
 - **Status:** Draft
-- **Date:** 2026-11-12
-- **Decision owner:** Ishola (consulting lead); client sign-off: Nana Adjei
+- **Version:** 0.1
+- **Date:** 12 November 2026
+- **Decision owner:** Data strategy lead; client review: Head of Operations and Finance lead
 
 ## Context
 
