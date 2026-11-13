@@ -6,7 +6,7 @@
 
 ## Context
 
-Marketing holds a list of about 300,000 people and nobody knows how many copies exist or where. Ghana's Data Protection Act gives people rights over their data, and the Data Protection Commission can require a response within 90 days when a deleted customer's data turns up. Today the company could not prove where a person's data is, so it could not prove it was deleted. I am not a lawyer; the points below need confirming with counsel.
+Marketing holds a list of about 300,000 people and nobody knows how many copies exist or where. Ghana's Data Protection Act gives people rights over their data, and the Data Protection Commission can require a response within 90 days when a deleted customer's data turns up. If a complaint is already open, its 90 days started the day it was received, so that case is answered by hand first (see defensibility.md). Today the company could not prove where a person's data is, so it could not prove it was deleted. I am not a lawyer; the points below need confirming with counsel.
 
 ## Decision
 

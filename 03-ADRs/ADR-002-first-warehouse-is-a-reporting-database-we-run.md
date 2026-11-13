@@ -10,7 +10,7 @@ The developer wants to "just buy Snowflake or BigQuery". Finance flinched. The c
 
 ## Decision
 
-Run the reporting database as a second MySQL instance on the second server, next to the replica from ADR-001 but separate from it. Every night it is rebuilt from the replica with plain SQL scripts kept in version control, copying raw tables first and then building the reporting tables from them. It holds no names, phone numbers or email addresses, only customer IDs. We buy a managed cloud warehouse only when a named trigger fires (see below). I assume MySQL 8 or later; if the shop runs 5.7, upgrading the reporting instance comes first.
+Run the reporting database as a second MySQL instance on the second server, next to the replica from ADR-001 but separate from it. Every night it is rebuilt from the replica with plain SQL scripts kept in version control, copying raw tables first and then building the reporting tables from them. It holds no names, phone numbers or email addresses, only customer IDs: the nightly copy uses a list of allowed columns, so personal columns are never copied across, and the database is rebuilt each night instead of piling up raw history forever. We buy a managed cloud warehouse only when a named trigger fires (see below). I assume MySQL 8 or later; if the shop runs 5.7, upgrading the reporting instance comes first.
 
 ## Alternatives considered
 
@@ -18,7 +18,7 @@ Run the reporting database as a second MySQL instance on the second server, next
 
 - **How it would work:** Load a copy of the shop data into a managed warehouse each night and point reports at it.
 - **Why it is attractive:** There is no server to run, it scales well past our size, and most reporting tools connect to it. At 40 GB the storage bill is small, so cost alone is not my objection.
-- **Why rejected:** The person who would run it is the developer who already runs the shop. It brings a new vendor, access settings and billing to watch, and per-query billing can surprise a team new to analytics. Moving customer data out of Ghana raises a Data Protection Act question we have not answered. None of the benefits matter at this size.
+- **Why rejected:** The person who would run it is the developer who already runs the shop. It brings a new vendor, access settings and billing to watch, and per-query billing can surprise a team new to analytics. As I understand Act 843, it has no specific rule on sending data abroad, but its principles bind wherever the data sits, so we would first have to show where customer data would live and who can reach it. For a managed service we cannot yet answer that. None of the benefits matter at this size.
 
 ### Alternative B: A lakehouse
 
