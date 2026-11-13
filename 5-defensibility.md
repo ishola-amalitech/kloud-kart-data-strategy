@@ -16,11 +16,11 @@ The plan therefore does two things: it **reduces the number of copies**, and it 
 |---|---|---|
 | **Register** with the Commission and renew the certificate. The register is public. | Check the public register for Kloud Kart's entry; if missing or lapsed, register. Put the renewal date in the diary. | Roadmap, by 29 Jan 2027 |
 | **Lawful basis and stated purpose.** Collect only what you need for a stated purpose. | Every customer-list export records its purpose. The reporting database holds customer IDs only, no names, phones or emails. | ADR-005, ADR-002 |
-| **Accuracy.** | The nightly check compares reports with the shop and tells the team not to publish if they disagree. | improvement.md |
+| **Accuracy.** | A proposed reconciliation check would compare selected report counts and values with the read replica and flag discrepancies. Passing those checks would not prove the revenue definition or overall data accuracy. | [6-improvement.md](./6-improvement.md) |
 | **Do not keep data longer than necessary.** | Exported files expire after 30 days. The reporting database is rebuilt nightly, not an ever-growing raw archive. Backups roll off after 35 days. | ADR-005, ADR-002 |
 | **Secure it.** | One logged export route; export logins on the live database removed; each copy has a named owner. Watermarked files make a leak traceable. | ADR-005, ADR-001 |
 | **Respect the person's rights**: they can ask what you hold and require correction or deletion, within a defined window. | A written deletion checklist, run from the register, with a 5-working-day target against the 90-day limit. | ADR-005 |
-| **Breach handling.** | **Not covered in this plan.** Accepted risk, see below. | Gaps |
+| **Breach handling.** | **Not covered in this plan.** This remains a gap; see below. | Gaps |
 | **No selling or buying personal data.** | No plan item sells or buys data. Marketing's lists are only ever the company's own customers. | n/a |
 | **Data leaving Ghana.** Act 843 does not appear to have a specific cross-border transfer regime, so I will not cite one. The principles still bind wherever data sits. | Everything stays on servers Kloud Kart controls. Before any cloud service is proposed, we answer "where would this data live, and who can reach it?" | ADR-002 |
 | **Foreign customers.** A duty to honour the foreign law that applies to a foreign person whose data is sent to Ghana. | The Nigeria pilot's customers may carry Nigerian obligations. Counsel to confirm what applies before Nigerian customer data is loaded. | ADR-005 |
@@ -49,11 +49,11 @@ The register is complete by 26 February 2027. The point is not to claim zero cop
 
 **If a complaint is already open**, the clock started when it was received, which I do not know. I assume it is live and treat it first. It is answered by hand, from whatever can be found this month, before any tooling exists. The honest answer will say what could not be found.
 
-## What I am accepting, and when to revisit
+## Gaps in this plan, and when to revisit
 
-The undercurrents I am not fully covering with two hires are accepted risks, not oversights.
+The undercurrents below are not fully covered by this plan. Listing them does not mean they have been formally accepted as risks.
 
-| Gap | Why accepted | Revisit |
+| Gap | Why it remains a gap | Revisit |
 |---|---|---|
 | **Breach handling.** No written plan for what to do if customer data leaks. | The first 12 months go to knowing where the data is. A breach plan depends on the register. | Draft in Q4; review 30 Nov 2027. |
 | **Copies we cannot find** (a laptop, a personal email). | No design removes them. The export log and expiry shrink the problem going forward. | After the first deletion drill, 30 Sep 2027. |
