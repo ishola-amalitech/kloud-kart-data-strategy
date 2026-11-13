@@ -123,7 +123,7 @@ Not applicable (N/A).
 - Direct financial loss is therefore currently unquantified.
 ### 3. Risk-Weighted Exposure
 
-- Potential legal fees and reputational damage may arise if the company is unable to answer questions about how customer data is deleted.
+- Potential legal fees and reputational damage may arise if the company is unable to answer questions about how customer data is deleted. Bried does not provided enough info to answer this.
 ## Problem 4 – Stale Inventory Creates Overselling Risk
 
 ### A. Symptom
@@ -165,10 +165,10 @@ Cancelled orders: 1,460,000 × 0.2% × 40% = 1,168. Sales value associated with 
 
 | Problem | Wasted Labour (GHS) | Direct Loss (GHS) | Risk-Weighted Exposure (GHS) |
 | --- | --- | --- | --- |
-| Exports slowing the server | 340,000 | 20,000 | N/A |
+| Exports slowing the server | 20,000 | 340,000 | N/A |
 | Inconsistent revenue calculations | 5,200 | N/A | 150,000 |
 | Marketing customer-data exports | 1,200 | N/A | N/A |
-| Stale stock | 15,000 | N/A | 116,000 |
+| Stale stock | 15,000 | N/A | 29,200 |
 
 ## Cost Prioritisation Methodology
 
@@ -186,13 +186,13 @@ Each cost category was normalised against the highest value in that category, us
 | Problem | Normalised Labour | Normalised Direct Loss | Normalised Risk Exposure | Final Score |
 | --- | --- | --- | --- | --- |
 | Exports slowing the server | 100.00 | 100.00 | N/A | 100.00 |
-| Inconsistent revenue | 1.53 | N/A | 100.00 | 34.35 |
-| Marketing customer-data exports | 0.35 | N/A | N/A | 0.35 |
-| Stale stock | 4.41 | N/A | 77.33 | 28.72 |
+| Inconsistent revenue | 26.00 | N/A | 100.00 | 50.67 |
+| Marketing customer-data exports | 6.00 | N/A | N/A | 6.00 |
+| Stale stock | 75.00 | N/A | 19.47 | 56.49 |
 
 ## Ranking Results
 
 1. Exports slowing the server – 100.00: This is the highest priority because of its substantial labour and direct financial costs.
-1. Inconsistent revenue calculations – 34.35: This is the second priority, driven mainly by its risk-weighted financial exposure.
-1. Stale stock – 28.72: This ranks third by cost score, with significant potential exposure arising from inventory discrepancies.
-1. Marketing customer-data exports – 0.35: This has the lowest quantified cost, but this should not be interpreted as low business priority. Customer-data protection and the 90-day complaint-response requirement make it an important compliance issue.
+1. Stale stock – 56.49: This ranks second by cost score, driven by wasted labour and potential lost contribution from inventory discrepancies.
+1. Inconsistent revenue calculations – 50.67: This is the third priority, driven mainly by its risk-weighted financial exposure.
+1. Marketing customer-data exports – 6.00: This has the lowest quantified cost, but this should not be interpreted as low business priority. Customer-data protection and the 90-day complaint-response requirement make it an important compliance issue.
