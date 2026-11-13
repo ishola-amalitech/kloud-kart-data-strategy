@@ -24,10 +24,10 @@ The project is designed to answer the decision the company actually needs to mak
 - `02a-recommendation.md` — recommendation for the architecture and operating model
 - `02b-roadmap.md` — 12-month roadmap with quarterly outcomes and checks
 - `03-ADRs/` — six architecture decision records covering the major trade-offs; all are version 0.1 drafts pending client/board review, none is accepted
+- `4-kloud-kart-presentation.pptx` — 4th deliverable: board presentation draft; align its claims with the current diagnosis, recommendation, roadmap, and ADR drafts before submission
 - `5-defensibility.md` — assessment against Ghana's data-protection constraints; not legal advice
 - `6-improvement.md` — proposal for a reporting reconciliation check; not implemented
 - `kloud-kart-arch-v2.png` — supporting architecture diagram; the repository contains no v1 diagram or change log
-- `kloud-kart-presentation.pptx` — board presentation draft; align its claims with the current diagnosis, recommendation, roadmap, and ADR drafts before submission
 
 ## Core themes
 
